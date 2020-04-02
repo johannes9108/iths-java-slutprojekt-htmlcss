@@ -1,0 +1,14 @@
+@import "../abstracts/variables";
+
+body {
+  // background-color: $primary_color;
+  background-image: url("/img/bamboowp.jpg");
+  * {
+    border: 0;
+    box-sizing: border-box;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+}

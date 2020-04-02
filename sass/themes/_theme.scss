@@ -1,0 +1,20 @@
+@import "../abstracts/variables";
+ul {
+  list-style-type: none;
+}
+
+header {
+  background-color: $fourth_color;
+}
+
+main section {
+  background-color: $secondary_color;
+}
+
+main article {
+  // background-color: $third_color;
+}
+
+footer {
+  background-color: $fourth_color;
+}

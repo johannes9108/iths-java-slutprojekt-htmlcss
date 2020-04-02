@@ -1,0 +1,22 @@
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-flow: $direction nowrap;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin visibilityOff {
+  visibility: hidden;
+}
+@mixin visibilityOn {
+  visibility: visible;
+}
+@mixin hideContent {
+  display: none;
+}
+@mixin revealContent($typeOfDisplay) {
+  display: $typeOfDisplay;
+}
+@mixin grid($size) {
+  display: grid;
+  grid-template-columns: repeat($size, 1fr);
+}

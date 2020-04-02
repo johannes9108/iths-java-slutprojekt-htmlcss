@@ -1,0 +1,12 @@
+@import "../abstracts/mixins";
+
+.wrapper {
+  position: relative;
+  min-width: 100%;
+  @include grid(1);
+  grid-template-rows: 8vh minmax(80vh, auto) 5vh;
+  grid-template-areas:
+    "menuBar"
+    "main"
+    "interactionBar";
+}

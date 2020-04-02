@@ -1,0 +1,57 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+nav {
+  background-color: $primary_color;
+  opacity: 0.7;
+}
+
+.menuBar {
+  grid-area: menuBar;
+  position: sticky;
+  top: 0%;
+  align-items: center;
+  @include flex(row, flex_start, flex_end);
+
+  .hiddenMenu {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-color: $primary_color;
+    width: 0vw;
+    height: 30vh;
+    @include visibilityOff;
+
+    &:hover {
+      @include visibilityOn;
+    }
+
+    .listHolder {
+      overflow: hidden;
+      position: relative;
+      @include flex(column, space-evenly, flex_start);
+
+      align-items: center;
+      min-width: 80%;
+      min-height: 80%;
+      position: absolute;
+      top: 20%;
+      left: 5%;
+      //   background-color: brown;
+
+      li {
+        position: relative;
+        // background-color: green;
+      }
+    }
+  }
+}
+
+.interactionBar {
+  grid-area: interactionBar;
+  //   background-color: red;
+  position: sticky;
+  min-height: 50px;
+  bottom: 0;
+  @include flex(row, space-around, center);
+}

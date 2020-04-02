@@ -1,0 +1,52 @@
+@import "../themes/theme";
+@import "../abstracts/variables";
+
+$border-radius-contentArea: 10px;
+.contentArea {
+  grid-area: main;
+
+  padding: 1rem;
+  overflow: hidden;
+}
+.contentWrapper {
+  overflow: hidden;
+  border-radius: 20px;
+  // border: 1px solid black;
+  background-image: linear-gradient(to bottom, $third_color, $primary_color);
+}
+
+.contentArea .contentImg {
+  @include flex(row, center, center);
+  min-height: 40vh;
+  // background-color: blue;
+  // border-radius: $border-radius-contentArea $border-radius-contentArea 0 0;
+  padding: 1rem;
+
+  &:hover + .contentText .hiddenText {
+    height: 100%;
+  }
+}
+.contentArea .contentText {
+  @include flex(column, flex_start, flex_start);
+  text-align: center;
+  min-height: 40vh;
+  // border-radius: 0 0 $border-radius-contentArea $border-radius-contentArea;
+  // background-color: blue;
+  padding: 1rem;
+  span {
+    align-self: flex-start;
+    * {
+      display: inline-block;
+    }
+  }
+  .hiddenText {
+    overflow: hidden;
+    height: 0;
+
+    transition: height 0.2s;
+  }
+
+  &:hover .hiddenText {
+    height: 100%;
+  }
+}
