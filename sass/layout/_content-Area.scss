@@ -13,6 +13,7 @@ $border-radius-contentArea: 10px;
   border-radius: 20px;
   // border: 1px solid black;
   background-image: linear-gradient(to bottom, $third_color, $primary_color);
+  opacity: 1;
 }
 
 .contentArea .contentImg {
@@ -20,7 +21,7 @@ $border-radius-contentArea: 10px;
   min-height: 40vh;
   // background-color: blue;
   // border-radius: $border-radius-contentArea $border-radius-contentArea 0 0;
-  padding: 1rem;
+  padding: 0 1rem;
 
   &:hover + .contentText .hiddenText {
     height: 100%;
@@ -29,24 +30,40 @@ $border-radius-contentArea: 10px;
 .contentArea .contentText {
   @include flex(column, flex_start, flex_start);
   text-align: center;
-  min-height: 40vh;
+  min-height: 0vh;
+  transition: all 1s ease-in;
+
   // border-radius: 0 0 $border-radius-contentArea $border-radius-contentArea;
   // background-color: blue;
   padding: 1rem;
   span {
-    align-self: flex-start;
     * {
       display: inline-block;
     }
   }
   .hiddenText {
-    overflow: hidden;
-    height: 0;
+    overflow: auto;
+    max-height: 0;
 
-    transition: height 0.2s;
+    ul {
+      overflow: hidden;
+      height: 0;
+      transition: height 1s ease-in 300ms;
+
+      &:hover {
+        height: 100%;
+      }
+    }
+
+    // max-height: 0;
+    // transform: scaleY(0);
+    // transform-origin: top;
+    // transition: height ease-in 1s;
   }
 
   &:hover .hiddenText {
-    height: 100%;
+    // max-height: 100%;
+    // transform: scaleY(1);
+    max-height: 40vh;
   }
 }
