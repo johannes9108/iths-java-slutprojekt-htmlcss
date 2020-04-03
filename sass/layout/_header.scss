@@ -1,0 +1,21 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+header {
+  @include flex(row, center, flex-start);
+  // background-color: blue;
+  position: absolute;
+  z-index: 2;
+  min-width: 100%;
+  top: 0;
+  left: 0;
+}
+
+@media (min-width: $bp-desktop) {
+  header {
+    background-color: $primary_color;
+    @include flex(row, center, flex-start);
+    grid-area: title;
+    z-index: 0;
+  }
+}

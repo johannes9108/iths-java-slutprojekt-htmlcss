@@ -3,16 +3,15 @@ ul {
   list-style-type: none;
 }
 
-header {
-  background-color: $fourth_color;
+nav {
+  background-color: $third_color;
 }
-
 main section {
   background-color: $secondary_color;
 }
 
 main article {
-  // background-color: $third_color;
+  background-color: $primary_color;
 }
 
 footer {

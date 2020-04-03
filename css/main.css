@@ -1,7 +1,8 @@
 body {
   background-image: url("/img/bamboowp.jpg");
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  background-attachment: fixed; }
   body * {
     border: 0;
     box-sizing: border-box; }
@@ -18,11 +19,14 @@ body {
 ul {
   list-style-type: none; }
 
-header {
-  background-color: #cae8d5; }
+nav {
+  background-color: #204051; }
 
 main section {
   background-color: #3b6978; }
+
+main article {
+  background-color: #84a9ac; }
 
 footer {
   background-color: #cae8d5; }
@@ -61,6 +65,27 @@ h5 {
 h6 {
   font-size: 1.2rem; }
 
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  z-index: 2;
+  min-width: 100%;
+  top: 0;
+  left: 0; }
+
+@media (min-width: 1200px) {
+  header {
+    background-color: #84a9ac;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    grid-area: title;
+    z-index: 0; } }
+
 .wrapper {
   position: relative;
   min-width: 100%;
@@ -84,17 +109,20 @@ h6 {
     background-image: linear-gradient(to bottom, #204051, #84a9ac);
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: 8vh minmax(75vh, auto) 17vh;
-    grid-template-areas: "menuBar" "main" "footer"; } }
+    grid-template-rows: 7vh 5vh minmax(75vh, auto) 17vh;
+    grid-template-areas: "title" "menuBar" "main" "footer"; } }
 
 ul {
   list-style-type: none; }
 
-header {
-  background-color: #cae8d5; }
+nav {
+  background-color: #204051; }
 
 main section {
   background-color: #3b6978; }
+
+main article {
+  background-color: #84a9ac; }
 
 footer {
   background-color: #cae8d5; }
@@ -105,63 +133,74 @@ footer {
   overflow: hidden; }
 
 .contentWrapper {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  grid-template-rows: 40vh minmax(20vh, 35vh) auto;
+  grid-template-areas: "img" "titletag" "instructions";
   overflow: hidden;
   border-radius: 20px;
-  background-image: linear-gradient(to bottom, #204051, #84a9ac);
-  opacity: 1; }
-
-.contentArea .contentImg {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  min-height: 40vh;
-  padding: 0 1rem; }
-  .contentArea .contentImg:hover + .contentText .hiddenText {
-    height: 100%; }
-
-.contentArea .contentText {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex_start;
-  align-items: flex_start;
-  text-align: center;
-  min-height: 0vh;
-  transition: all 1s ease-in;
-  padding: 1rem; }
-  .contentArea .contentText span * {
-    display: inline-block; }
-  .contentArea .contentText .hiddenText {
-    overflow: hidden;
-    max-height: 0;
-    transition: inherit; }
-    .contentArea .contentText .hiddenText ul {
-      overflow: hidden; }
-  .contentArea .contentText:hover .hiddenText {
+  background-image: linear-gradient(to bottom, #204051, #84a9ac); }
+  .contentWrapper article {
+    padding: 0 1rem; }
+  .contentWrapper .contentImg {
+    grid-area: img;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center; }
+    .contentWrapper .contentImg img {
+      max-width: 100%;
+      border-radius: 5px; }
+  .contentWrapper .contentTitleTag {
+    grid-area: titletag;
     max-height: 40vh; }
+    .contentWrapper .contentTitleTag h1 {
+      text-align: center; }
+    .contentWrapper .contentTitleTag ul li {
+      display: inline; }
+      .contentWrapper .contentTitleTag ul li h6 {
+        display: inherit; }
+    .contentWrapper .contentTitleTag .contentIngredients {
+      max-height: 60%;
+      overflow: auto; }
+      .contentWrapper .contentTitleTag .contentIngredients ul {
+        column-count: 2; }
+        .contentWrapper .contentTitleTag .contentIngredients ul li {
+          display: block; }
+  .contentWrapper .contentInstructions {
+    grid-area: instructions; }
+    .contentWrapper .contentInstructions ol {
+      list-style-position: inside; }
 
 @media (min-width: 1200px) {
   .contentWrapper {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 40vh auto;
+    grid-template-areas: "img meta" "instructions instructions";
     border-radius: 0px;
     background-image: linear-gradient(to bottom, #204051, #84a9ac);
-    opacity: 1;
     height: 100%; }
-    .contentWrapper article:nth-of-type(1) {
-      width: 50%; }
-    .contentWrapper article:nth-of-type(2) {
-      width: 50%; }
-  .contextText .hiddenText {
-    max-height: 100%;
-    transform: rotate(90deg); }
-  .contentArea {
-    grid-area: main;
-    padding: 0;
-    overflow: hidden; } }
+    .contentWrapper .contentImg {
+      grid-area: img; }
+      .contentWrapper .contentImg img {
+        max-width: 100%;
+        border-radius: 5px; }
+    .contentWrapper .contentTitleTag {
+      grid-area: meta; }
+      .contentWrapper .contentTitleTag h1 {
+        text-align: center; }
+      .contentWrapper .contentTitleTag ul li {
+        display: inline; }
+        .contentWrapper .contentTitleTag ul li h6 {
+          display: inherit; }
+      .contentWrapper .contentTitleTag .contentIngredients {
+        background-color: navajowhite; }
+        .contentWrapper .contentTitleTag .contentIngredients ul {
+          column-count: 2; }
+    .contentWrapper .contentInstructions {
+      grid-area: instructions; } }
 
 nav {
   background-color: #84a9ac;
@@ -177,6 +216,8 @@ nav {
   flex-flow: row nowrap;
   justify-content: flex_start;
   align-items: flex_end; }
+  .menuBar h1 {
+    z-index: 2; }
   .menuBar .hiddenMenu {
     position: absolute;
     top: 0%;
@@ -247,15 +288,13 @@ footer {
 
 @media (min-width: 1200px) {
   footer {
-    display: block;
-    position: fixed;
-    bottom: 0; } }
+    display: block; } }
 
 .menuButton {
   font-size: 2.5rem;
   background-color: #84a9ac;
   z-index: 2; }
-  .menuButton:hover + div {
+  .menuButton:hover ~ div {
     width: 30vw; }
 
 .interactionBar button {
@@ -273,13 +312,6 @@ footer {
 @media (min-width: 1200px) {
   .menuButton {
     display: none; } }
-
-.contentImg picture {
-  background-color: red; }
-
-.contentImg picture img {
-  height: 30vh;
-  border-radius: 5px; }
 
 @media (min-width: 1200px) {
   .contentImg picture img {

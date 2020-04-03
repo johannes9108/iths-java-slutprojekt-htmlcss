@@ -1,11 +1,9 @@
 @import "../abstracts/mixins";
 @import "../abstracts/variables";
 .contentImg picture {
-  background-color: red;
+  // background-color: red;
 }
 .contentImg picture img {
-  height: 30vh;
-  border-radius: 5px;
 }
 
 @media (min-width: $bp-desktop) {

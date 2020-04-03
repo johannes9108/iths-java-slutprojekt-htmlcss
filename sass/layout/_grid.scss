@@ -30,8 +30,9 @@
     background-image: linear-gradient(to bottom, $third_color, $primary_color);
 
     @include grid(1);
-    grid-template-rows: 8vh minmax(75vh, auto) 17vh;
+    grid-template-rows: 7vh 5vh minmax(75vh, auto) 17vh;
     grid-template-areas:
+      "title"
       "menuBar"
       "main"
       "footer";
