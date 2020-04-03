@@ -31,10 +31,8 @@ nav {
     }
 
     .listHolder {
-      position: relative;
-      @include flex(column, space-evenly, flex_start);
+      @include flex(column, space-evenly, center);
 
-      align-items: center;
       min-width: 80%;
       min-height: 80%;
       position: absolute;
@@ -51,10 +49,56 @@ nav {
 }
 
 .interactionBar {
-  grid-area: interactionBar;
+  grid-area: footer;
   //   background-color: red;
   position: sticky;
-  min-height: 50px;
+  //   min-height: 50px;
   bottom: 0;
   @include flex(row, space-around, center);
+}
+
+@media (min-width: $bp-tablet) {
+  body {
+    background-image: url("../../img/chicken-curry_large.jpg");
+  }
+}
+
+@media (min-width: $bp-desktop) {
+  body {
+    background-image: url("../../img/shakshuka_with_feta_400-900.jpg");
+  }
+
+  .menuBar {
+    display: block;
+    background-color: green;
+    width: 100%;
+
+    .hiddenMenu {
+      width: 100%;
+      height: 100%;
+      &:hover {
+        width: 100%;
+        // width: initial;
+        //   @include visibilityOn;
+      }
+      //   background-color: red;
+
+      .listHolder {
+        @include flex(row, space-around, center);
+        // background-color: blue;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+
+  .interactionBar {
+    display: none;
+  }
 }

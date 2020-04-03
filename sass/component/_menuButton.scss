@@ -25,3 +25,9 @@
     color: yellow;
   }
 }
+
+@media (min-width: $bp-desktop) {
+  .menuButton {
+    display: none;
+  }
+}

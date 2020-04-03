@@ -1,0 +1,12 @@
+footer {
+  display: none;
+  grid-area: footer;
+  height: 100%;
+}
+@media (min-width: $bp-desktop) {
+  footer {
+    display: block;
+    position: fixed;
+    bottom: 0;
+  }
+}

@@ -1,5 +1,7 @@
 body {
-  background-image: url("/img/bamboowp.jpg"); }
+  background-image: url("/img/bamboowp.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
   body * {
     border: 0;
     box-sizing: border-box; }
@@ -7,6 +9,11 @@ body {
 * {
   margin: 0;
   padding: 0; }
+
+@media (min-width: 1200px) {
+  body {
+    margin: auto;
+    max-width: 1200px; } }
 
 ul {
   list-style-type: none; }
@@ -59,8 +66,26 @@ h6 {
   min-width: 100%;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 8vh minmax(80vh, auto) 5vh;
-  grid-template-areas: "menuBar" "main" "interactionBar"; }
+  grid-template-rows: 8vh minmax(87vh, auto) 5vh;
+  grid-template-areas: "menuBar" "main" "footer"; }
+
+@media (min-width: 768px) {
+  .wrapper {
+    position: relative;
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 8vh minmax(87vh, auto) 5vh;
+    grid-template-areas: "menuBar" "main" "footer"; } }
+
+@media (min-width: 1200px) {
+  .wrapper {
+    position: relative;
+    background-image: linear-gradient(to bottom, #204051, #84a9ac);
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 8vh minmax(75vh, auto) 17vh;
+    grid-template-areas: "menuBar" "main" "footer"; } }
 
 ul {
   list-style-type: none; }
@@ -107,16 +132,36 @@ footer {
   .contentArea .contentText span * {
     display: inline-block; }
   .contentArea .contentText .hiddenText {
-    overflow: auto;
-    max-height: 0; }
+    overflow: hidden;
+    max-height: 0;
+    transition: inherit; }
     .contentArea .contentText .hiddenText ul {
-      overflow: hidden;
-      height: 0;
-      transition: height 1s ease-in 300ms; }
-      .contentArea .contentText .hiddenText ul:hover {
-        height: 100%; }
+      overflow: hidden; }
   .contentArea .contentText:hover .hiddenText {
     max-height: 40vh; }
+
+@media (min-width: 1200px) {
+  .contentWrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 0px;
+    background-image: linear-gradient(to bottom, #204051, #84a9ac);
+    opacity: 1;
+    height: 100%; }
+    .contentWrapper article:nth-of-type(1) {
+      width: 50%; }
+    .contentWrapper article:nth-of-type(2) {
+      width: 50%; }
+  .contextText .hiddenText {
+    max-height: 100%;
+    transform: rotate(90deg); }
+  .contentArea {
+    grid-area: main;
+    padding: 0;
+    overflow: hidden; } }
 
 nav {
   background-color: #84a9ac;
@@ -144,11 +189,9 @@ nav {
     .menuBar .hiddenMenu:hover {
       width: 30vw; }
     .menuBar .hiddenMenu .listHolder {
-      position: relative;
       display: flex;
       flex-flow: column nowrap;
       justify-content: space-evenly;
-      align-items: flex_start;
       align-items: center;
       min-width: 80%;
       min-height: 80%;
@@ -159,14 +202,54 @@ nav {
         position: relative; }
 
 .interactionBar {
-  grid-area: interactionBar;
+  grid-area: footer;
   position: sticky;
-  min-height: 50px;
   bottom: 0;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: center; }
+
+@media (min-width: 768px) {
+  body {
+    background-image: url("../../img/chicken-curry_large.jpg"); } }
+
+@media (min-width: 1200px) {
+  body {
+    background-image: url("../../img/shakshuka_with_feta_400-900.jpg"); }
+  .menuBar {
+    display: block;
+    background-color: green;
+    width: 100%; }
+    .menuBar .hiddenMenu {
+      width: 100%;
+      height: 100%; }
+      .menuBar .hiddenMenu:hover {
+        width: 100%; }
+      .menuBar .hiddenMenu .listHolder {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0; }
+  h4 {
+    font-size: 1.5rem; }
+  .interactionBar {
+    display: none; } }
+
+footer {
+  display: none;
+  grid-area: footer;
+  height: 100%; }
+
+@media (min-width: 1200px) {
+  footer {
+    display: block;
+    position: fixed;
+    bottom: 0; } }
 
 .menuButton {
   font-size: 2.5rem;
@@ -187,6 +270,19 @@ nav {
 .interactionBar button:nth-of-type(3) {
   color: yellow; }
 
+@media (min-width: 1200px) {
+  .menuButton {
+    display: none; } }
+
+.contentImg picture {
+  background-color: red; }
+
 .contentImg picture img {
   height: 30vh;
   border-radius: 5px; }
+
+@media (min-width: 1200px) {
+  .contentImg picture img {
+    object-fit: contain;
+    border-radius: 5px;
+    align-items: center; } }

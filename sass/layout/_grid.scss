@@ -1,12 +1,39 @@
 @import "../abstracts/mixins";
+@import "../abstracts/variables";
 
 .wrapper {
   position: relative;
   min-width: 100%;
   @include grid(1);
-  grid-template-rows: 8vh minmax(80vh, auto) 5vh;
+  grid-template-rows: 8vh minmax(87vh, auto) 5vh;
   grid-template-areas:
     "menuBar"
     "main"
-    "interactionBar";
+    "footer";
+}
+@media (min-width: $bp-tablet) {
+  .wrapper {
+    position: relative;
+    min-width: 100%;
+    @include grid(1);
+    grid-template-rows: 8vh minmax(87vh, auto) 5vh;
+    grid-template-areas:
+      "menuBar"
+      "main"
+      "footer";
+  }
+}
+@media (min-width: $bp-desktop) {
+  .wrapper {
+    position: relative;
+
+    background-image: linear-gradient(to bottom, $third_color, $primary_color);
+
+    @include grid(1);
+    grid-template-rows: 8vh minmax(75vh, auto) 17vh;
+    grid-template-areas:
+      "menuBar"
+      "main"
+      "footer";
+  }
 }
