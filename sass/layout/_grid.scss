@@ -5,11 +5,15 @@
   position: relative;
   min-width: 100%;
   @include grid(1);
-  grid-template-rows: 8vh minmax(87vh, auto) 8vh;
+  grid-template-rows: 8vh minmax(87vh, auto) auto;
   grid-template-areas:
     "topContainer"
     "main"
     "footer";
+
+  main {
+    margin: 1rem;
+  }
 }
 @media (min-width: $bp-tablet) {
   .wrapper {
@@ -27,13 +31,15 @@
   .wrapper {
     position: relative;
 
-    background-image: linear-gradient(to bottom, $third_color, $primary_color);
-
     @include grid(1);
-    grid-template-rows: 9vh minmax(75vh, auto) 17vh;
+    grid-template-rows: 9vh minmax(75vh, auto) auto;
     grid-template-areas:
       "topContainer"
       "main"
       "footer";
+
+    main {
+      margin: unset;
+    }
   }
 }

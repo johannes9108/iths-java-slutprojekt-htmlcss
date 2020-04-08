@@ -19,12 +19,6 @@ body {
 ul {
   list-style-type: none; }
 
-main section {
-  background-color: #323232; }
-
-footer {
-  background-color: #ffac41; }
-
 * {
   line-height: 1.6;
   font-family: "Quicksand", sans-serif;
@@ -70,8 +64,10 @@ h6 {
   min-width: 100%;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 8vh minmax(87vh, auto) 8vh;
+  grid-template-rows: 8vh minmax(87vh, auto) auto;
   grid-template-areas: "topContainer" "main" "footer"; }
+  .wrapper main {
+    margin: 1rem; }
 
 @media (min-width: 768px) {
   .wrapper {
@@ -85,101 +81,94 @@ h6 {
 @media (min-width: 1200px) {
   .wrapper {
     position: relative;
-    background-image: linear-gradient(to bottom, #ffffff, #ffffff);
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: 9vh minmax(75vh, auto) 17vh;
-    grid-template-areas: "topContainer" "main" "footer"; } }
+    grid-template-rows: 9vh minmax(75vh, auto) auto;
+    grid-template-areas: "topContainer" "main" "footer"; }
+    .wrapper main {
+      margin: unset; } }
 
 ul {
   list-style-type: none; }
 
-main section {
-  background-color: #323232; }
-
-footer {
-  background-color: #ffac41; }
+main {
+  grid-area: main;
+  background-color: #ffffff; }
 
 .contentArea {
-  grid-area: main;
-  padding: 1rem;
-  overflow: hidden; }
-
-.contentWrapper {
+  overflow: hidden;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 0rem;
   grid-template-rows: 40vh minmax(1vh, 35vh) auto;
   grid-template-areas: "img" "titletag" "instructions";
-  overflow: hidden;
   transition: all 1s; }
-  .contentWrapper:hover .hiddenText,
-  .contentWrapper:hover .contentTitleTag .hiddenText {
+  .contentArea:hover .hiddenText,
+  .contentArea:hover .contentTitleTag .hiddenText {
     max-height: 100%; }
-  .contentWrapper article {
+  .contentArea article {
     transition: all 1s;
     padding: 0 1rem; }
-  .contentWrapper .contentImg {
+  .contentArea .contentImg {
     grid-area: img;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center; }
-    .contentWrapper .contentImg img {
+    .contentArea .contentImg img {
       max-width: 100%;
       border-radius: 5px; }
-  .contentWrapper .contentTitleTag {
+  .contentArea .contentTitleTag {
     border-radius: 5px;
     grid-area: titletag;
-    overflow: hidden;
-    background-color: #ffffff; }
-    .contentWrapper .contentTitleTag h1 {
+    overflow: hidden; }
+    .contentArea .contentTitleTag h1 {
       text-align: center; }
-    .contentWrapper .contentTitleTag ul li {
+    .contentArea .contentTitleTag ul li {
       display: inline; }
-      .contentWrapper .contentTitleTag ul li h6 {
+      .contentArea .contentTitleTag ul li h6 {
         display: inherit; }
-    .contentWrapper .contentTitleTag .contentIngredients {
+    .contentArea .contentTitleTag .contentIngredients {
       background-color: whitesmoke;
       overflow: auto; }
-      .contentWrapper .contentTitleTag .contentIngredients ul {
+      .contentArea .contentTitleTag .contentIngredients ul {
         column-count: 2; }
-        .contentWrapper .contentTitleTag .contentIngredients ul li {
+        .contentArea .contentTitleTag .contentIngredients ul li {
           display: block; }
-  .contentWrapper .contentInstructions {
+  .contentArea .contentInstructions {
     grid-area: instructions;
-    background-color: white; }
-    .contentWrapper .contentInstructions ol {
+    overflow: hidden; }
+    .contentArea .contentInstructions ol {
       list-style-position: inside; }
-  .contentWrapper .hiddenText,
-  .contentWrapper .contentTitleTag .hiddenText {
+  .contentArea .hiddenText,
+  .contentArea .contentTitleTag .hiddenText {
     max-height: 0; }
 
 @media (min-width: 1200px) {
-  .contentWrapper {
+  .contentArea {
+    padding: unset;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 40vh auto;
     grid-template-areas: "img meta" "instructions instructions";
     border-radius: 0px;
-    background-image: linear-gradient(to bottom, #ffffff, #ffffff);
     height: 100%; }
-    .contentWrapper:hover .hiddenText,
-    .contentWrapper:hover .contentTitleTag .hiddenText {
+    .contentArea:hover .hiddenText,
+    .contentArea:hover .contentTitleTag .hiddenText {
       max-height: 100%; }
-    .contentWrapper .hiddenText,
-    .contentWrapper .contentTitleTag .hiddenText {
+    .contentArea .hiddenText,
+    .contentArea .contentTitleTag .hiddenText {
       transition: unset;
       max-height: 100%; }
-    .contentWrapper .contentImg {
+    .contentArea .contentImg {
       grid-area: img;
       display: flex;
       flex-flow: column nowrap;
       justify-content: flex-end;
       align-items: flex-start; }
-      .contentWrapper .contentImg img {
+      .contentArea .contentImg img {
         border-radius: 5px; }
-    .contentWrapper .contentTitleTag {
+    .contentArea .contentTitleTag {
       display: flex;
       flex-flow: column nowrap;
       justify-content: flex-start;
@@ -187,27 +176,87 @@ footer {
       grid-area: meta;
       max-height: unset;
       overflow: unset; }
-      .contentWrapper .contentTitleTag h1 {
+      .contentArea .contentTitleTag h1 {
         text-align: center; }
-      .contentWrapper .contentTitleTag ul li {
+      .contentArea .contentTitleTag ul li {
         display: inline; }
-        .contentWrapper .contentTitleTag ul li h6 {
+        .contentArea .contentTitleTag ul li h6 {
           display: inherit; }
-      .contentWrapper .contentTitleTag .contentIngredients {
+      .contentArea .contentTitleTag .contentIngredients {
         background-color: whitesmoke; }
-        .contentWrapper .contentTitleTag .contentIngredients ul {
+        .contentArea .contentTitleTag .contentIngredients ul {
           column-count: 2; }
-    .contentWrapper .contentInstructions {
+    .contentArea .contentInstructions {
       grid-area: instructions;
       column-count: 2;
       column-gap: 2rem; } }
+
+.myPageMain .myProfile {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 50vh minmax(100px, auto) minmax(300px, auto);
+  grid-template-areas: "accountInfo" "profilePicture" "imgGallery"; }
+  .myPageMain .myProfile .accountInfo {
+    grid-area: accountInfo;
+    padding: 0 1rem; }
+    .myPageMain .myProfile .accountInfo h3 {
+      text-align: center; }
+    .myPageMain .myProfile .accountInfo .rows {
+      background-color: #e6e6e6;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: stretch;
+      max-height: 85%;
+      overflow: auto; }
+  .myPageMain .myProfile .profilePicture {
+    grid-area: profilePicture;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid black;
+    padding: 1rem; }
+    .myPageMain .myProfile .profilePicture img {
+      max-width: 80%;
+      max-height: 300px; }
+  .myPageMain .myProfile .imgGallery {
+    grid-area: imgGallery;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    border: 1px solid black; }
+    .myPageMain .myProfile .imgGallery img {
+      max-height: 200px;
+      object-fit: contain;
+      margin: 1rem; }
+
+@media (min-width: 1200px) {
+  .myPageMain .myProfile {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 40vh minmax(100px, auto);
+    grid-template-areas: "accountInfo profilePicture" "imgGallery imgGallery"; }
+    .myPageMain .myProfile .accountInfo {
+      grid-area: accountInfo; }
+      .myPageMain .myProfile .accountInfo .rows {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        max-height: 85%;
+        overflow: auto; }
+    .myPageMain .myProfile .profilePicture {
+      border-top: unset;
+      border-left: 1px solid black; } }
 
 nav {
   background-color: #ffffff;
   z-index: 1; }
 
 .topContainer {
-  padding: 0 1rem;
   background-color: #ffffff;
   grid-area: topContainer;
   position: sticky;
@@ -293,6 +342,7 @@ nav {
     display: none; } }
 
 footer {
+  background-color: #e6e6e6;
   display: none;
   grid-area: footer;
   height: 100%; }
@@ -329,3 +379,32 @@ footer {
     object-fit: contain;
     border-radius: 5px;
     align-items: center; } }
+
+.settingsMain {
+  grid-area: main; }
+  .settingsMain section {
+    height: 100%;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50vh;
+    gap: 1rem; }
+    .settingsMain section article h4 {
+      border-bottom: solid #ffac41 1px; }
+    .settingsMain section article .buttonGroup {
+      padding: 1rem;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin: auto;
+      width: 80%;
+      align-content: flex-start; }
+      .settingsMain section article .buttonGroup button {
+        padding: 0.5rem 1rem;
+        margin: 1rem;
+        border-radius: 5px;
+        box-shadow: 1px 1px 2px gray; }
+        .settingsMain section article .buttonGroup button:hover {
+          background-color: gray; }
