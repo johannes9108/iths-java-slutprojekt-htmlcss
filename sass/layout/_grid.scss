@@ -5,9 +5,9 @@
   position: relative;
   min-width: 100%;
   @include grid(1);
-  grid-template-rows: 8vh minmax(87vh, auto) 5vh;
+  grid-template-rows: 8vh minmax(87vh, auto) 8vh;
   grid-template-areas:
-    "menuBar"
+    "topContainer"
     "main"
     "footer";
 }
@@ -30,10 +30,9 @@
     background-image: linear-gradient(to bottom, $third_color, $primary_color);
 
     @include grid(1);
-    grid-template-rows: 7vh 5vh minmax(75vh, auto) 17vh;
+    grid-template-rows: 9vh minmax(75vh, auto) 17vh;
     grid-template-areas:
-      "title"
-      "menuBar"
+      "topContainer"
       "main"
       "footer";
   }

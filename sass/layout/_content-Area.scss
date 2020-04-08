@@ -11,44 +11,40 @@ $border-radius-contentArea: 10px;
 .contentWrapper {
   @include grid(1);
 
-  gap: 1rem;
-  grid-template-rows: 40vh minmax(20vh, 35vh) auto;
+  gap: 0rem;
+  grid-template-rows: 40vh minmax(1vh, 35vh) auto;
   grid-template-areas:
     "img"
     "titletag"
     "instructions";
 
   overflow: hidden;
-  border-radius: 20px;
-  background-image: linear-gradient(to bottom, $third_color, $primary_color);
-
+  transition: all 1s;
   &:hover {
-    .hiddenText {
-      // height: 100%;
+    .hiddenText,
+    .contentTitleTag .hiddenText {
+      max-height: 100%;
     }
   }
   article {
+    transition: all 1s;
     padding: 0 1rem;
   }
 
   .contentImg {
     grid-area: img;
-    // background-color: salmon;
     @include flex(row, center, center);
 
     img {
       max-width: 100%;
       border-radius: 5px;
     }
-
-    &:hover ~ .hiddenText {
-      // max-height: 100%;
-    }
   }
   .contentTitleTag {
+    border-radius: 5px;
     grid-area: titletag;
-    // background-color: red;
-    max-height: 40vh;
+    overflow: hidden;
+    background-color: $primary_color;
     h1 {
       text-align: center;
     }
@@ -61,12 +57,10 @@ $border-radius-contentArea: 10px;
       }
     }
     .contentIngredients {
-      // background-color: navajowhite;
-      max-height: 60%;
+      background-color: rgb(245, 245, 245);
       overflow: auto;
       ul {
         column-count: 2;
-        // background-color: green;
         li {
           display: block;
         }
@@ -76,21 +70,32 @@ $border-radius-contentArea: 10px;
 
   .contentInstructions {
     grid-area: instructions;
-    // background-color: powderblue;
+    background-color: white;
 
     ol {
       list-style-position: inside;
     }
   }
 
-  // .hiddenText {
-  //   overflow: hidden;
-  //   min-height: 0;
-  // }
+  .hiddenText,
+  .contentTitleTag .hiddenText {
+    max-height: 0;
+  }
 }
 
 @media (min-width: $bp-desktop) {
   .contentWrapper {
+    &:hover {
+      .hiddenText,
+      .contentTitleTag .hiddenText {
+        max-height: 100%;
+      }
+    }
+    .hiddenText,
+    .contentTitleTag .hiddenText {
+      transition: unset;
+      max-height: 100%;
+    }
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 40vh auto;
@@ -106,16 +111,18 @@ $border-radius-contentArea: 10px;
 
     .contentImg {
       grid-area: img;
+      @include flex(column, flex-end, flex-start);
       // background-color: salmon;
-
       img {
-        max-width: 100%;
         border-radius: 5px;
       }
     }
     .contentTitleTag {
+      @include flex(column, flex-start, stretch);
       grid-area: meta;
       // background-color: red;
+      max-height: unset;
+      overflow: unset;
       h1 {
         text-align: center;
       }
@@ -128,7 +135,7 @@ $border-radius-contentArea: 10px;
         }
       }
       .contentIngredients {
-        background-color: navajowhite;
+        background-color: rgb(245, 245, 245);
 
         ul {
           column-count: 2;
@@ -139,6 +146,8 @@ $border-radius-contentArea: 10px;
 
     .contentInstructions {
       grid-area: instructions;
+      column-count: 2;
+      column-gap: 2rem;
       // background-color: powderblue;
     }
   }

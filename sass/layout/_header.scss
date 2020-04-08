@@ -2,20 +2,23 @@
 @import "../abstracts/variables";
 
 header {
-  @include flex(row, center, flex-start);
-  // background-color: blue;
-  position: absolute;
-  z-index: 2;
-  min-width: 100%;
-  top: 0;
-  left: 0;
+  // @include flex(row, center, flex-start);
+  // position: absolute;
+  // // display: none;
+  // // background-color: blue;
+  // // position: absolute; !!!
+  // // display: none;!!!
+  // min-width: 100%;
+  // z-index: 1;
+  // top: 0;
+  // left: 0;
 }
 
 @media (min-width: $bp-desktop) {
   header {
-    background-color: $primary_color;
-    @include flex(row, center, flex-start);
-    grid-area: title;
-    z-index: 0;
+    // z-index: 0;
+    // background-color: red;
+    // @include flex(row, center, flex-start);
+    // grid-area: title;
   }
 }

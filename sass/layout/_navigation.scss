@@ -3,51 +3,49 @@
 
 nav {
   background-color: $primary_color;
-  opacity: 0.7;
+  // opacity: 0.7;
   z-index: 1;
 }
 
-.menuBar {
-  grid-area: menuBar;
+.topContainer {
+  header {
+    @include flex(row, center, flex-start);
+    position: absolute;
+    // display: none;
+    // background-color: blue;
+    // position: absolute; !!!
+    // display: none;!!!
+    min-width: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+  padding: 0 1rem;
+  background-color: $primary-color;
+  grid-area: topContainer;
   position: sticky;
   top: 0%;
   align-items: center;
-  @include flex(row, flex_start, flex_end);
+  @include flex(row, flex-end, center);
 
   h1 {
-    z-index: 2;
   }
 
-  .hiddenMenu {
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    background-color: $primary_color;
-    width: 0vw;
-    height: 30vh;
+  .listHolder {
+    @include flex(column, space-evenly, center);
+    background-color: inherit;
+    height: 0;
+    padding: 0 2rem;
     overflow: hidden;
-    transition: width 1s;
-    // @include visibilityOff;
+    position: absolute;
+    top: 100%;
+    right: 0%;
+    transition: all 1s;
+    //   background-color: brown;
 
-    &:hover {
-      //   @include visibilityOn;
-      width: 30vw;
-    }
-
-    .listHolder {
-      @include flex(column, space-evenly, center);
-
-      min-width: 80%;
-      min-height: 80%;
-      position: absolute;
-      top: 20%;
-      left: 5%;
-      //   background-color: brown;
-
-      li {
-        position: relative;
-        // background-color: green;
-      }
+    li {
+      position: relative;
+      // background-color: green;
     }
   }
 }
@@ -72,22 +70,45 @@ nav {
     background-image: url("../../img/shakshuka_with_feta_400-900.jpg");
   }
 
-  .menuBar {
-    display: block;
-    background-color: green;
-    width: 100%;
+  nav {
+    z-index: 0;
+  }
 
-    .hiddenMenu {
-      width: 100%;
-      height: 100%;
-      &:hover {
-        width: 100%;
-        // width: initial;
-        //   @include visibilityOn;
+  .topContainer {
+    @include flex(column, flex-start, stretch);
+    // background-color: greenyellow;
+    min-height: 100%;
+
+    position: unset;
+    header {
+      border-bottom: $basic_border;
+      position: unset;
+      // display: none;
+      // background-color: blue;
+      // position: absolute; !!!
+      // display: none;!!!
+      min-width: unset;
+      z-index: 0;
+    }
+    .menuBar {
+      border-bottom: $basic_border;
+      // background-color: green;
+
+      h1 {
+        display: none;
       }
-      //   background-color: red;
-
+      // .hiddenMenu {
+      //   //   width: 100%;
+      //   //   height: 100%;
+      //   &:hover {
+      //     height: 100%;
+      //     // width: initial;
+      //     //   @include visibilityOn;
+      //   }
+      //   //   background-color: red;
+      // }
       .listHolder {
+        position: unset;
         @include flex(row, space-around, center);
         // background-color: blue;
         width: 100%;
