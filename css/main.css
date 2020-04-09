@@ -64,7 +64,7 @@ h6 {
   min-width: 100%;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 8vh minmax(87vh, auto) auto;
+  grid-template-rows: 8vh 87vh 8vh;
   grid-template-areas: "topContainer" "main" "footer"; }
   .wrapper main {
     margin: 1rem; }
@@ -93,21 +93,24 @@ ul {
 
 main {
   grid-area: main;
-  background-color: #ffffff; }
+  overflow: auto; }
+  main > * {
+    background-color: #ffffff; }
 
 .contentArea {
   overflow: hidden;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 0rem;
-  grid-template-rows: 40vh minmax(1vh, 35vh) auto;
+  grid-template-rows: 40vh auto auto;
   grid-template-areas: "img" "titletag" "instructions";
   transition: all 1s; }
-  .contentArea:hover .hiddenText,
+  .contentArea:hover .hiddenText {
+    max-height: 30vh; }
   .contentArea:hover .contentTitleTag .hiddenText {
-    max-height: 100%; }
+    max-height: 20vh; }
   .contentArea article {
-    transition: all 1s;
+    transition: inherit;
     padding: 0 1rem; }
   .contentArea .contentImg {
     grid-area: img;
@@ -137,7 +140,7 @@ main {
           display: block; }
   .contentArea .contentInstructions {
     grid-area: instructions;
-    overflow: hidden; }
+    overflow: auto; }
     .contentArea .contentInstructions ol {
       list-style-position: inside; }
   .contentArea .hiddenText,
@@ -289,6 +292,8 @@ nav {
     top: 100%;
     right: 0%;
     transition: all 1s; }
+    .topContainer .listHolder:hover {
+      height: 30vh; }
     .topContainer .listHolder li {
       position: relative; }
 
@@ -342,16 +347,21 @@ nav {
     display: none; } }
 
 footer {
-  background-color: #e6e6e6;
-  display: none;
-  grid-area: footer;
-  height: 100%; }
+  display: none; }
 
 @media (min-width: 1200px) {
   footer {
-    display: block; } }
+    display: block;
+    grid-area: footer;
+    background-color: #e6e6e6;
+    position: sticky;
+    bottom: 0;
+    padding: 0 2rem; }
+    footer ul {
+      list-style-type: circle; } }
 
 .menuButton {
+  margin-right: 1rem;
   font-size: 2.5rem;
   background-color: #ffffff;
   z-index: 2; }

@@ -5,7 +5,7 @@
   position: relative;
   min-width: 100%;
   @include grid(1);
-  grid-template-rows: 8vh minmax(87vh, auto) auto;
+  grid-template-rows: 8vh 87vh 8vh;
   grid-template-areas:
     "topContainer"
     "main"

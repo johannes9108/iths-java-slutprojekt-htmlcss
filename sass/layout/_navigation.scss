@@ -8,6 +8,12 @@ nav {
 }
 
 .topContainer {
+  background-color: $primary-color;
+  grid-area: topContainer;
+  position: sticky;
+  top: 0%;
+  align-items: center;
+  @include flex(row, flex-end, center);
   header {
     @include flex(row, center, flex-start);
     position: absolute;
@@ -19,15 +25,6 @@ nav {
     z-index: 1;
     top: 0;
     left: 0;
-  }
-  background-color: $primary-color;
-  grid-area: topContainer;
-  position: sticky;
-  top: 0%;
-  align-items: center;
-  @include flex(row, flex-end, center);
-
-  h1 {
   }
 
   .listHolder {
@@ -41,6 +38,9 @@ nav {
     right: 0%;
     transition: all 1s;
     //   background-color: brown;
+    &:hover {
+      height: 30vh;
+    }
 
     li {
       position: relative;
