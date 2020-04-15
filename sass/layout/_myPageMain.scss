@@ -44,7 +44,7 @@
       @include flex(row, space-evenly, flex-start);
       flex-wrap: wrap;
 
-      border: 1px solid black;
+      border-top: 1px solid black;
 
       img {
         max-height: 200px;
@@ -54,7 +54,7 @@
     }
   }
 }
-@media (min-width: $bp-desktop) {
+@media (min-width: $bp-phone) {
   .myPageMain {
     .myProfile {
       @include grid(2);

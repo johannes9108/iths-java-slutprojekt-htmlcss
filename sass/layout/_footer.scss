@@ -1,16 +1,18 @@
 footer {
   display: none;
 }
-@media (min-width: $bp-desktop) {
+@media (min-width: $bp-phone) {
   footer {
     display: block;
     grid-area: footer;
-    background-color: $third-color;
+    background-color: $primary-color;
     position: sticky;
     bottom: 0;
     padding: 0 2rem;
+    border-top: $basic_border;
     ul {
       list-style-type: circle;
+      text-decoration: underline;
     }
   }
 }

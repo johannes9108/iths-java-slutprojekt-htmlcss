@@ -6,7 +6,7 @@
 .contentImg picture img {
 }
 
-@media (min-width: $bp-desktop) {
+@media (min-width: $bp-phone) {
   .contentImg picture img {
     // min-height: 40vh;
     object-fit: contain;

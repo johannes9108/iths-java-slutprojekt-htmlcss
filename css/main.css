@@ -11,7 +11,7 @@ body {
   margin: 0;
   padding: 0; }
 
-@media (min-width: 1200px) {
+@media (min-width: 600px) {
   body {
     margin: auto;
     max-width: 1200px; } }
@@ -64,26 +64,17 @@ h6 {
   min-width: 100%;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 8vh 87vh 8vh;
+  grid-template-rows: 8vh minmax(87vh, auto) minmax(auto, 8vh);
   grid-template-areas: "topContainer" "main" "footer"; }
   .wrapper main {
     margin: 1rem; }
 
-@media (min-width: 768px) {
-  .wrapper {
-    position: relative;
-    min-width: 100%;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: 8vh minmax(87vh, auto) 5vh;
-    grid-template-areas: "menuBar" "main" "footer"; } }
-
-@media (min-width: 1200px) {
+@media (min-width: 600px) {
   .wrapper {
     position: relative;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: 9vh minmax(75vh, auto) auto;
+    grid-template-rows: 9vh minmax(87vh, auto) auto;
     grid-template-areas: "topContainer" "main" "footer"; }
     .wrapper main {
       margin: unset; } }
@@ -147,7 +138,7 @@ main {
   .contentArea .contentTitleTag .hiddenText {
     max-height: 0; }
 
-@media (min-width: 1200px) {
+@media (min-width: 600px) {
   .contentArea {
     padding: unset;
     display: grid;
@@ -230,13 +221,13 @@ main {
     justify-content: space-evenly;
     align-items: flex-start;
     flex-wrap: wrap;
-    border: 1px solid black; }
+    border-top: 1px solid black; }
     .myPageMain .myProfile .imgGallery img {
       max-height: 200px;
       object-fit: contain;
       margin: 1rem; }
 
-@media (min-width: 1200px) {
+@media (min-width: 600px) {
   .myPageMain .myProfile {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -310,7 +301,7 @@ nav {
   body {
     background-image: url("../../img/chicken-curry_large.jpg"); } }
 
-@media (min-width: 1200px) {
+@media (min-width: 600px) {
   body {
     background-image: url("../../img/shakshuka_with_feta_400-900.jpg"); }
   nav {
@@ -349,16 +340,18 @@ nav {
 footer {
   display: none; }
 
-@media (min-width: 1200px) {
+@media (min-width: 600px) {
   footer {
     display: block;
     grid-area: footer;
-    background-color: #e6e6e6;
+    background-color: #ffffff;
     position: sticky;
     bottom: 0;
-    padding: 0 2rem; }
+    padding: 0 2rem;
+    border-top: 1px solid black; }
     footer ul {
-      list-style-type: circle; } }
+      list-style-type: circle;
+      text-decoration: underline; } }
 
 .menuButton {
   margin-right: 1rem;
@@ -380,11 +373,11 @@ footer {
 .interactionBar button:nth-of-type(3) {
   color: yellow; }
 
-@media (min-width: 1200px) {
+@media (min-width: 600px) {
   .menuButton {
     display: none; } }
 
-@media (min-width: 1200px) {
+@media (min-width: 600px) {
   .contentImg picture img {
     object-fit: contain;
     border-radius: 5px;

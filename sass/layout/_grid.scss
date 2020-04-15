@@ -5,7 +5,7 @@
   position: relative;
   min-width: 100%;
   @include grid(1);
-  grid-template-rows: 8vh 87vh 8vh;
+  grid-template-rows: 8vh minmax(87vh, auto) minmax(auto, 8vh);
   grid-template-areas:
     "topContainer"
     "main"
@@ -15,24 +15,13 @@
     margin: 1rem;
   }
 }
-@media (min-width: $bp-tablet) {
-  .wrapper {
-    position: relative;
-    min-width: 100%;
-    @include grid(1);
-    grid-template-rows: 8vh minmax(87vh, auto) 5vh;
-    grid-template-areas:
-      "menuBar"
-      "main"
-      "footer";
-  }
-}
-@media (min-width: $bp-desktop) {
+
+@media (min-width: $bp-phone) {
   .wrapper {
     position: relative;
 
     @include grid(1);
-    grid-template-rows: 9vh minmax(75vh, auto) auto;
+    grid-template-rows: 9vh minmax(87vh, auto) auto;
     grid-template-areas:
       "topContainer"
       "main"

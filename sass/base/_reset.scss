@@ -16,7 +16,7 @@ body {
   margin: 0;
   padding: 0;
 }
-@media (min-width: $bp-desktop) {
+@media (min-width: $bp-phone) {
   body {
     margin: auto;
     max-width: $bp-desktop;
