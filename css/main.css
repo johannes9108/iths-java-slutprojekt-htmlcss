@@ -297,13 +297,9 @@ nav {
   justify-content: space-around;
   align-items: center; }
 
-@media (min-width: 768px) {
-  body {
-    background-image: url("../../img/chicken-curry_large.jpg"); } }
-
 @media (min-width: 600px) {
   body {
-    background-image: url("../../img/shakshuka_with_feta_400-900.jpg"); }
+    background-image: url("../img/shakshuka_with_feta_400-900.jpg"); }
   nav {
     z-index: 0; }
   .topContainer {

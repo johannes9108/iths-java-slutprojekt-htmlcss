@@ -58,15 +58,9 @@ nav {
   @include flex(row, space-around, center);
 }
 
-@media (min-width: $bp-tablet) {
-  body {
-    background-image: url("../../img/chicken-curry_large.jpg");
-  }
-}
-
 @media (min-width: $bp-phone) {
   body {
-    background-image: url("../../img/shakshuka_with_feta_400-900.jpg");
+    background-image: url("../img/shakshuka_with_feta_400-900.jpg");
   }
 
   nav {
